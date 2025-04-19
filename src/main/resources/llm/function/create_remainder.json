@@ -1,0 +1,18 @@
+{
+  "name": "create_remainder",
+  "description": "Create a remainder or event. Generate appropriate name and desc",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "name of the event"
+      },
+      "description": {
+        "type": "string",
+        "description": "Brief description, Should bt between 3 to 10 words"
+      }
+    },
+    "required": ["name", "description"]
+  }
+}
