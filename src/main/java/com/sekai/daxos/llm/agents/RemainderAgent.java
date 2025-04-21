@@ -48,7 +48,7 @@ public class RemainderAgent {
 
         List<Part> parts = new ArrayList<>();
 
-        parts.add(Part.fromText("I have a meeting tomorrow with Jack"));
+        parts.add(Part.fromText("I have a meeting tomorrow with Jack regarding sales increment"));
 
         Content content = Content.builder()
                 .role("user")

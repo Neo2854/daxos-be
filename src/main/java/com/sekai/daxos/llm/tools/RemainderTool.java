@@ -21,6 +21,9 @@ public class RemainderTool{
 
         declarations.add(RemainderFunctions.CREATE_REMAINDER.getFunctionDeclaration());
 
+        // TODO DELETE REMINDER
+        // TODO UPDATE REMINDER
+
         tool = Tool.builder()
                 .functionDeclarations(declarations)
                 .build();
