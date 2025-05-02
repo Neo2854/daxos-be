@@ -1,6 +1,6 @@
 {
   "name": "create_remainder",
-  "description": "Create a remainder or event. Generate appropriate name and desc",
+  "description": "Create a remainder or event. Generate appropriate name and desc. Do not ask for additional info",
   "parameters": {
     "type": "object",
     "properties": {
@@ -11,6 +11,10 @@
       "description": {
         "type": "string",
         "description": "Brief description, Should bt between 3 to 10 words"
+      },
+      "start_ts": {
+        "type": "string",
+        "description": "Start Date and time in 24hr format, time can be optional (e.g., 'dd/mm/yyyy hh:mm')"
       }
     },
     "required": ["name", "description"]

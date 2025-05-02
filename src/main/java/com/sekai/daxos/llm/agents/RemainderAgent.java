@@ -3,7 +3,9 @@ package com.sekai.daxos.llm.agents;
 import com.google.genai.Client;
 import com.google.genai.types.*;
 import com.sekai.daxos.constants.LLMConstants;
+import com.sekai.daxos.llm.prompts.DateTImeInfo;
 import com.sekai.daxos.llm.tools.RemainderTool;
+import com.sekai.daxos.models.RemainderRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpException;
@@ -41,14 +43,16 @@ public class RemainderAgent {
         tools.add(remainderTool.getTool());
     }
 
-    public String ask(){
+    public String ask(RemainderRequest request){
         GenerateContentConfig config = GenerateContentConfig.builder()
                 .tools(tools)
                 .build();
 
         List<Part> parts = new ArrayList<>();
 
-        parts.add(Part.fromText("I have a meeting tomorrow with Jack regarding sales increment"));
+        parts.add(Part.fromText(request.getMessage()));
+        parts.add(Part.fromText(DateTImeInfo.getCurrentDayPrompt(request.getCurrDay())));
+        parts.add(Part.fromText(DateTImeInfo.getCurrTimePrompt(request.getCurrTime())));
 
         Content content = Content.builder()
                 .role("user")
