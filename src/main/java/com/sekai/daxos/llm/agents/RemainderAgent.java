@@ -59,16 +59,10 @@ public class RemainderAgent {
                 .parts(parts)
                 .build();
 
-        try {
-            GenerateContentResponse response = llmClient.models.generateContent(LLMConstants.LLM_MODEL, content, config);
+        GenerateContentResponse response = llmClient.models.generateContent(LLMConstants.LLM_MODEL, content, config);
 
-            log.info("Got response from: " + LLMConstants.LLM_MODEL);
+        log.info("Got response from: " + LLMConstants.LLM_MODEL);
 
-            return response.toJson();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (HttpException e) {
-            throw new RuntimeException(e);
-        }
+        return response.toJson();
     }
 }
