@@ -63,6 +63,6 @@ public class RemainderAgent {
 
         log.info("Got response from: " + LLMConstants.LLM_MODEL);
 
-        return response.toJson();
+        return response.candidates().get().get(0).content().get().toJson();
     }
 }
